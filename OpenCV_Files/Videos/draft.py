@@ -1,4 +1,5 @@
 import cv2 as cv
+import numpy as np 
 
 vd = cv.VideoCapture('dog.mp4');
 vd2 =cv.VideoCapture('kitten.mp4');
@@ -36,8 +37,23 @@ while True:
         break;
 
 
-    
-    
-
 vc.release()
 cv.destroyedAllWindows()  
+"""
+
+## LINE 4 , 6 and AA test
+
+blank4  = np.zeros((500,500,3), dtype='uint8')
+blank8  = np.zeros((500,500,3), dtype='uint8')
+blankAA = np.zeros((500,500,3), dtype='uint8')
+
+# Diagonal line — this is where the difference shows
+cv.line(blank4,  (0, 0), (499, 499), (0,255,0), thickness=2, lineType=cv.LINE_4)
+cv.line(blank8,  (0, 0), (499, 499), (0,255,0), thickness=2, lineType=cv.LINE_8)
+cv.line(blankAA, (0, 0), (499, 499), (0,255,0), thickness=2, lineType=cv.LINE_AA)
+
+cv.imshow("LINE_4",  blank4)
+cv.imshow("LINE_8",  blank8)
+cv.imshow("LINE_AA", blankAA)
+cv.waitKey(0)
+cv.destroyAllWindows()"""
