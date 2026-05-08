@@ -8,7 +8,7 @@ people = ['Mindy Kaling', 'Elton John', 'Ben Afflek', 'Jerry Seinfield', 'Madonn
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
 face_recognizer.read('face_trained.yml')
 
-img = cv.imread(r'/home/kelly/XDU_internship.github.io/OpenCV_Files/val/mindy_kaling/3.jpg')
+img = cv.imread(r'/home/kelly/XDU_internship.github.io/OpenCV/val/mindy_kaling/3.jpg')
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 
 #detection of the person
@@ -21,8 +21,8 @@ for (x,y,w,h) in face_rect:
     label,confidence = face_recognizer.predict(face_roi)
     print(f'label = {people[label]} with a confidence = {confidence}')
 
-    cv.putText(img,str(people[label]),(x,20),cv.FONT_HERSHEY_COMPLEX,1.1,(0,0,255),thickness=2)
-    cv.rectangle(img,(x,y),(x+w,y+h),(0,0,255),thickness=2)
+    cv.putText(img,str(people[label]),(20,20),cv.FONT_HERSHEY_COMPLEX,1.1,(0,255,0),thickness=2)
+    cv.rectangle(img,(x,y),(x+w,y+h),(0,255,0),thickness=2)
 
 cv.imshow("Detected face",img)
 cv.waitKey(0)
