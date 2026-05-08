@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<indexing>
+ <object alt="" name="Image9" object_type="graphic"/>
+ <object alt="" name="Image 1" object_type="graphic"/>
+ <object alt="" name="Image1" object_type="graphic"/>
+ <object alt="" name="Image2" object_type="graphic"/>
+ <object alt="" name="Image3" object_type="graphic"/>
+ <object alt="" name="Image4" object_type="graphic"/>
+ <object alt="" name="Image5" object_type="graphic"/>
+ <object alt="" name="Image6" object_type="graphic"/>
+ <object alt="" name="Image 3" object_type="graphic"/>
+ <object alt="" name="Image7" object_type="graphic"/>
+ <object alt="" name="Image8" object_type="graphic"/>
+ <paragraph index="39" node_type="writer">Terminal 2 : the listener </paragraph>
+ <paragraph index="42" node_type="writer">Terminal 3 : the talker</paragraph>
+ <paragraph index="45" node_type="writer">Terminal 1 : the master </paragraph>
+ <object alt="" name="Image12" object_type="graphic"/>
+ <object alt="" name="Image14" object_type="graphic"/>
+ <object alt="" name="Image10" object_type="graphic"/>
+ <object alt="" name="Image11" object_type="graphic"/>
+ <object alt="" name="Image13" object_type="graphic"/>
+ <paragraph index="66" node_type="writer">Computer configuration and Software installation</paragraph>
+ <paragraph index="74" node_type="writer">SUMMARY</paragraph>
+ <paragraph index="76" node_type="writer">I- MY COMPUTER SPECIFICATIONS</paragraph>
+ <paragraph index="77" node_type="writer">II- THE VIRTUAL ENVIRONMENT OF WORK(ROBOT_PROJECT)</paragraph>
+ <paragraph index="78" node_type="writer">III- LANGUAGES AND SOFTWARE INSTALLATION:</paragraph>
+ <paragraph index="79" node_type="writer">Python 3.11 for OpenCV</paragraph>
+ <paragraph index="80" node_type="writer">Docker and ROS</paragraph>
+ <paragraph index="81" node_type="writer">Gazebo</paragraph>
+ <paragraph index="100" node_type="writer">Introduction</paragraph>
+ <paragraph index="102" node_type="writer">This part of the project is to explain the installation and the configuration of all the software needed for the project; before doing this, I will check my computer specification to know if it can support the software.</paragraph>
+ <paragraph index="107" node_type="writer">I- MY COMPUTER SPECIFICATIONS</paragraph>
+ <paragraph index="109" node_type="writer">1-To check my ram: free -h</paragraph>
+ <paragraph index="110" node_type="writer">It means I have a total memory of 14 GB and 6.9 GB is free. The RAM is the memory used by the computer to perform operations, and it’s sufficient for this project.
+
+2-To see the GPU: lspci | grep -i vga</paragraph>
+ <paragraph index="111" node_type="writer">It means the GPU is an AMD/ATI Barcelo (Radeon integrated).
+
+3- To see my ubuntu version:  lsb_release -a</paragraph>
+ <paragraph index="112" node_type="writer">This Ubuntu version is too recent for ROS Noetic used for this project. ROS Noetic need Ubuntu 24. </paragraph>
+ <paragraph index="115" node_type="writer">4-To check the disk space: df -h /
+
+</paragraph>
+ <paragraph index="116" node_type="writer">The disk allow us to stock 26 GB of information.
+</paragraph>
+ <paragraph index="117" node_type="writer">Summary of my computer specifications :</paragraph>
+ <object index="119" name="Tableau1" object_type="table"/>
+ <paragraph index="121" node_type="writer" parent_index="119">OS</paragraph>
+ <paragraph index="124" node_type="writer" parent_index="119">Ubuntu 25.04</paragraph>
+ <paragraph index="127" node_type="writer" parent_index="119">Too recent</paragraph>
+ <paragraph index="130" node_type="writer" parent_index="119">RAM</paragraph>
+ <paragraph index="133" node_type="writer" parent_index="119">14 GB</paragraph>
+ <paragraph index="136" node_type="writer" parent_index="119">Perfect</paragraph>
+ <paragraph index="139" node_type="writer" parent_index="119">GPU</paragraph>
+ <paragraph index="142" node_type="writer" parent_index="119">AMD Barcela</paragraph>
+ <paragraph index="145" node_type="writer" parent_index="119">CPU mode only</paragraph>
+ <paragraph index="148" node_type="writer" parent_index="119">Disk</paragraph>
+ <paragraph index="151" node_type="writer" parent_index="119">26 GB free</paragraph>
+ <paragraph index="154" node_type="writer" parent_index="119">Enough</paragraph>
+ <paragraph index="157" node_type="writer" parent_index="119">Drive</paragraph>
+ <paragraph index="160" node_type="writer" parent_index="119">NVMe SSD</paragraph>
+ <paragraph index="163" node_type="writer" parent_index="119">Very fast</paragraph>
+ <paragraph index="166" node_type="writer">The problem with computer characteristics</paragraph>
+ <paragraph index="168" node_type="writer">1-My computer only have CPU </paragraph>
+ <paragraph index="169" node_type="writer">My computer only has a CPU, which means it can perform one operation at a time, and that is a problem for using Machine Learning for crop recognition. GPUs allow for several operations to be done in parallel, which is why they are useful for Machine Learning.</paragraph>
+ <paragraph index="171" node_type="writer">But the car we want to use is the LIMO PRO, which has the following characteristics:</paragraph>
+ <object index="172" name="Tableau2" object_type="table"/>
+ <paragraph index="174" node_type="writer" parent_index="172">Processor</paragraph>
+ <paragraph index="177" node_type="writer" parent_index="172">NVIDIA Orin Nano</paragraph>
+ <paragraph index="180" node_type="writer" parent_index="172">GPU cores</paragraph>
+ <paragraph index="183" node_type="writer" parent_index="172">1024 CUDA cores</paragraph>
+ <paragraph index="186" node_type="writer" parent_index="172">AI power</paragraph>
+ <paragraph index="189" node_type="writer" parent_index="172">40 TOPS</paragraph>
+ <paragraph index="192" node_type="writer" parent_index="172">RAM</paragraph>
+ <paragraph index="195" node_type="writer" parent_index="172">8 GB LPDDR5</paragraph>
+ <paragraph index="198" node_type="writer" parent_index="172">Storage</paragraph>
+ <paragraph index="201" node_type="writer" parent_index="172">64 GB eMMC</paragraph>
+ <paragraph index="204" node_type="writer">
+Solution :</paragraph>
+ <paragraph index="205" node_type="writer">My own computer can’t be used for YOLOv5s training because of its lack of a GPU, but I can do the YOLOv5s training directly on the LIMO according to its characteristics.</paragraph>
+ <paragraph index="207" node_type="writer">2-My Ubuntu version is too recent for ROS</paragraph>
+ <paragraph index="208" node_type="writer">Indeed, we need Ubuntu 20.04 for ROS1.</paragraph>
+ <paragraph index="210" node_type="writer">Solution:</paragraph>
+ <paragraph index="211" node_type="writer">We will use Docker and work on it. We can directly work on the LIMO, but we choose to work on Docker to enable us to continue working outside the Lab.</paragraph>
+ <paragraph index="217" node_type="writer">II- THE VIRTUAL ENVIRONMENT OF WORK(ROBOT_PROJECT)</paragraph>
+ <paragraph index="218" node_type="writer">Since OpenCv as its own Python version, to avoid a conflict of Python with my original computer Python version I created a virtual environment for executing the OpenCV code.</paragraph>
+ <paragraph index="220" node_type="writer"># ENTER the environment</paragraph>
+ <paragraph index="221" node_type="writer">source ~/robot_project/bin/activate</paragraph>
+ <paragraph index="222" node_type="writer">→ (robot_project) appears</paragraph>
+ <paragraph index="224" node_type="writer"># EXIT the environment</paragraph>
+ <paragraph index="225" node_type="writer">deactivate</paragraph>
+ <paragraph index="226" node_type="writer">→ (robot_project) disappears</paragraph>
+ <paragraph index="228" node_type="writer"># Re-enter anytime</paragraph>
+ <paragraph index="229" node_type="writer">source ~/robot_project/bin/activate</paragraph>
+ <paragraph index="230" node_type="writer">→ (robot_project) 	appears again</paragraph>
+ <paragraph index="238" node_type="writer">III- LANGUAGES AND SOFTWARE INSTALLATION</paragraph>
+ <paragraph index="240" node_type="writer">1-Python:</paragraph>
+ <paragraph index="241" node_type="writer">We will use OpenCV, YOLOv5s, and ROS for the project, and each one of them needs:</paragraph>
+ <paragraph index="242" node_type="writer">- OpenCV needs: Python 3.13</paragraph>
+ <paragraph index="243" node_type="writer">- YOLOv5s needs: Python 3.11</paragraph>
+ <paragraph index="244" node_type="writer">- ROS needs: Python 3.8</paragraph>
+ <paragraph index="246" node_type="writer">Python version on computer:</paragraph>
+ <paragraph index="247" node_type="writer">Unfortunately, this version only matches with OpenCV. 
+
+Solution: </paragraph>
+ <paragraph index="248" node_type="writer">We will install Python 3.11 for YOLOv5s and for ROS we don’t need because Python 3.8 Noetic is in Docker.
+</paragraph>
+ <paragraph index="249" node_type="writer">Python 3.11 installation: Sudo apt install -y python3.11 python3.11-venv python3.11-dev</paragraph>
+ <paragraph index="251" node_type="writer">error during installation:</paragraph>
+ <paragraph index="252" node_type="writer">This problem come from the absence of Python 3.11 in the default repository of Ubuntu 25.04 I have, so to continue the installation we need to add it.</paragraph>
+ <paragraph index="254" node_type="writer">Installation by building Python 3.11 from source</paragraph>
+ <paragraph index="255" node_type="writer">This is the most reliable method. Run each command one by one:</paragraph>
+ <paragraph index="257" node_type="writer">1-Remove the broken deadsnakes repository</paragraph>
+ <paragraph index="258" node_type="writer">sudo add-apt-repository --remove ppa:deadsnakes/ppa</paragraph>
+ <paragraph index="259" node_type="writer">sudo apt update</paragraph>
+ <paragraph index="260" node_type="writer">2- Install buil dependencies</paragraph>
+ <paragraph index="261" node_type="writer">sudo apt install -y build-essential zlib1g-dev \</paragraph>
+ <paragraph index="262" node_type="writer">libncurses5-dev libgdbm-dev libnss3-dev \</paragraph>
+ <paragraph index="263" node_type="writer">libssl-dev libsqlite3-dev libreadline-dev \</paragraph>
+ <paragraph index="264" node_type="writer">libffi-dev curl libbz2-dev</paragraph>
+ <paragraph index="266" node_type="writer">3- Download Python 3.11 source code</paragraph>
+ <paragraph index="267" node_type="writer">cd /tmp</paragraph>
+ <paragraph index="268" node_type="writer">curl -O https://www.python.org/ftp/python/3.11.9/Python-3.11.9.tgz</paragraph>
+ <paragraph index="269" node_type="writer">4- Extract the source code</paragraph>
+ <paragraph index="270" node_type="writer">tar -xzf Python-3.11.9.tgz</paragraph>
+ <paragraph index="271" node_type="writer">cd Python-3.11.9</paragraph>
+ <paragraph index="272" node_type="writer">5- Configuration of the build</paragraph>
+ <paragraph index="273" node_type="writer">./configure –enable-optimizations</paragraph>
+ <paragraph index="274" node_type="writer">6- Compilation of Python 3.11</paragraph>
+ <paragraph index="275" node_type="writer">make -j$(nproc)</paragraph>
+ <paragraph index="276" node_type="writer">7- Installation of Python 3.11</paragraph>
+ <paragraph index="277" node_type="writer">sudo make altinstall</paragraph>
+ <paragraph index="278" node_type="writer">8- Verification of the installation</paragraph>
+ <paragraph index="279" node_type="writer">python3.11 –version</paragraph>
+ <paragraph index="280" node_type="writer">Result:</paragraph>
+ <paragraph index="282" node_type="writer">9- Installation of pip for Python 3.11</paragraph>
+ <paragraph index="283" node_type="writer">curl -sS https://bootstrap.pypa.io/get-pip.py | python3.11</paragraph>
+ <paragraph index="284" node_type="writer">10-Verification of the pip</paragraph>
+ <paragraph index="285" node_type="writer">python3.11 -m pip --version</paragraph>
+ <paragraph index="286" node_type="writer">Result :</paragraph>
+ <paragraph index="290" node_type="writer">VS CODE EXTENSION</paragraph>
+ <paragraph index="292" node_type="writer">code --install-extension ms-python.python &amp;&amp; \: </paragraph>
+ <paragraph index="293" node_type="writer">python extension</paragraph>
+ <paragraph index="295" node_type="writer">code --install-extension ms-vscode-remote.remote-ssh &amp;&amp; \ : </paragraph>
+ <paragraph index="296" node_type="writer">remote ssh, for accessing LIMO PRO from VS Code.</paragraph>
+ <paragraph index="298" node_type="writer">code --install-extension ms-iot.vscode-ros &amp;&amp; \ : </paragraph>
+ <paragraph index="299" node_type="writer">To write ROS Code properly.</paragraph>
+ <paragraph index="301" node_type="writer">code --install-extension ms-azuretools.vscode-docker :</paragraph>
+ <paragraph index="302" node_type="writer">For a visual interface of Docker inside of VS Code, to avoid  using the commands when we want to perform some operations.</paragraph>
+ <paragraph index="306" node_type="writer">2-Docker and Ros</paragraph>
+ <paragraph index="311" node_type="writer">Since my computer runs ubuntu 25, which isn’t compatible with ROS, we chose to run ROS in a Docker container.</paragraph>
+ <paragraph index="313" node_type="writer">Docker installation:</paragraph>
+ <paragraph index="315" node_type="writer">Once Docker is installed, we must restart the computer. If we don’t want to restart the computer, we must inform the computer the use Docker by entering “newgrp docker” in the terminal.</paragraph>
+ <paragraph index="317" node_type="writer">The first thing we must do every time we turn on my computer is to launch all the container. We do it with the following command:</paragraph>
+ <paragraph index="318" node_type="writer">- docker start -ai ros_kelly</paragraph>
+ <paragraph index="322" node_type="writer">Steps to use ROS on Docker</paragraph>
+ <paragraph index="323" node_type="writer">We need at least three terminals, and to configure them we follow the following commands:</paragraph>
+ <paragraph index="325" node_type="writer">Terminal 1:  The master (the bain)</paragraph>
+ <paragraph index="326" node_type="writer">This terminal manages the phonebook so the two other terminals can find each other.</paragraph>
+ <paragraph index="327" node_type="writer">1- Enter the container: docker exec -it ros_kelly bash</paragraph>
+ <paragraph index="328" node_type="writer">2- Sourcing ROS: source /opt/ros/noetic/setup.bash</paragraph>
+ <paragraph index="329" node_type="writer">3- Turn on ROS tools or start the heart: roscore</paragraph>
+ <paragraph index="331" node_type="writer">Terminal 2:  The listener (the subscriber)</paragraph>
+ <paragraph index="332" node_type="writer">This terminal represents the robot logic (like a robot arm waiting for a command).</paragraph>
+ <paragraph index="333" node_type="writer">1- enter the container: docker exec -it ros_kelly bash</paragraph>
+ <paragraph index="334" node_type="writer">2- Sourcing ROS: source /opt/ros/noetic/setup.bash</paragraph>
+ <paragraph index="335" node_type="writer">3- Listening to the channel: rostopic echo /chatter</paragraph>
+ <paragraph index="337" node_type="writer">Now, the Terminal 2 is waiting for a command coming from the Terminal 3.</paragraph>
+ <paragraph index="339" node_type="writer">Terminal 3:  the talker (the publisher)</paragraph>
+ <paragraph index="340" node_type="writer">This terminal represents the sensors (like the LIMO PRO camera or LiDAR).</paragraph>
+ <paragraph index="341" node_type="writer">1- Enter the container: docker exec -it ros_kelly bash</paragraph>
+ <paragraph index="342" node_type="writer">2- Sourcing ROS: source /opt/ros/noetic/setup.bash</paragraph>
+ <paragraph index="343" node_type="writer">3- Send a message: rostopic pub -r 1 /chatter std_msgs/String &quot;data: 'LIMO robot is ready'&quot;</paragraph>
+ <paragraph index="345" node_type="writer">Once we enter the command 3, the message ‘LIMO robot is ready’ will be displayed in the 2nd terminal.</paragraph>
+ <paragraph index="347" node_type="writer">
+
+</paragraph>
+ <paragraph index="350" node_type="writer">
+3- Gazebo Installation</paragraph>
+ <paragraph index="351" node_type="writer">commands to install Gazebo:</paragraph>
+ <paragraph index="352" node_type="writer">apt install ros-noetic-gazebo-ros-pkgs ros-noetic-gazebo-ros-control</paragraph>
+ <paragraph index="354" node_type="writer">After installing Gazebo, when I tap gazebo in the container nothing happens ; it is because gazebo is a graphical interface ans Docker is currently « blind », and has no way to send the video signal on my computer screen. Docker is trying to display an image but has no way to do it. To fix this we will bridge Docker ( the box) and the host Ubuntu 25.04.  To do it we must the follow the following steps :</paragraph>
+ <paragraph index="356" node_type="writer">1- On the Ubuntu 25.05 ( out of Docker) :</paragraph>
+ <paragraph index="357" node_type="writer">xhost +local:docker</paragraph>
+ <paragraph index="358" node_type="writer">result :</paragraph>
+ <paragraph index="359" node_type="writer">
+</paragraph>
+ <paragraph index="360" node_type="writer">
+It means that the computer is ready to accept visual drawing from Docker container.</paragraph>
+ <paragraph index="362" node_type="writer">2- We must now indicate to the Docker container where to send the drawing, to do this we must set DISPALY as environment variable to let the software know it can look at the host screen :</paragraph>
+ <paragraph index="363" node_type="writer">export DISPLAY=:0</paragraph>
+ <paragraph index="365" node_type="writer">Now we will try to test the graphical link again :</paragraph>
+ <paragraph index="366" node_type="writer">- Let’s install a tiny test app : apt update &amp;&amp; apt install x11-apps -y</paragraph>
+ <paragraph index="367" node_type="writer">- Run the clock : xclock</paragraph>
+ <paragraph index="368" node_type="writer">result :
+</paragraph>
+ <paragraph index="372" node_type="writer">This means that even though the two part ( Ubuntu 25.04 and the container ) have the configurations needed, the tunnel that link the two has not be created. </paragraph>
+ <paragraph index="375" node_type="writer">Solution :</paragraph>
+ <paragraph index="376" node_type="writer">We will recreate a container but this time with a tunnel to send the drawing toward the host ( Ubuntu 25.04) screen.</paragraph>
+ <paragraph index="378" node_type="writer"> Steps : </paragraph>
+ <paragraph index="379" node_type="writer">1- First we must stop and remove the old container :</paragraph>
+ <paragraph index="380" node_type="writer">docker stop ros_kelly</paragraph>
+ <paragraph index="381" node_type="writer">docker rm ros_kelly</paragraph>
+ <paragraph index="383" node_type="writer">2- Grant GPU permissions to docker from the host :</paragraph>
+ <paragraph index="384" node_type="writer">xhost +local:docker</paragraph>
+ <paragraph index="386" node_type="writer">2- Launch the new container with GPU support :</paragraph>
+ <paragraph index="387" node_type="writer">docker run -it \</paragraph>
+ <paragraph index="388" node_type="writer">    --name ros_kelly \</paragraph>
+ <paragraph index="389" node_type="writer">    --env=&quot;DISPLAY=$DISPLAY&quot; \</paragraph>
+ <paragraph index="390" node_type="writer">    --env=&quot;QT_X11_NO_MITSHM=1&quot; \</paragraph>
+ <paragraph index="391" node_type="writer">    --volume=&quot;/tmp/.X11-unix:/tmp/.X11-unix:rw&quot; \</paragraph>
+ <paragraph index="392" node_type="writer">    osrf/ros:noetic-desktop-full</paragraph>
+ <paragraph index="394" node_type="writer">Test : </paragraph>
+ <paragraph index="395" node_type="writer">- In the host : xhost +local:docker</paragraph>
+ <paragraph index="396" node_type="writer">- Open a master terminal and configure it like above :
+	1- Enter the container: docker exec -it ros_kelly bash</paragraph>
+ <paragraph index="397" node_type="writer">	2- Sourcing ROS: source /opt/ros/noetic/setup.bash</paragraph>
+ <paragraph index="398" node_type="writer">	3- Turn on ROS tools or start the heart: roscore
+</paragraph>
+ <paragraph index="399" node_type="writer">
+-Open another terminal ( we can call him terminal 4) for send the display :</paragraph>
+ <paragraph index="400" node_type="writer">	1- Enter the container: docker exec -it ros_kelly bash</paragraph>
+ <paragraph index="401" node_type="writer">	2- Sourcing ROS: export DISPLAY=:0</paragraph>
+ <paragraph index="402" node_type="writer">	3- Turn on ROS tools or start the heart:  gazebo.
+
+Result :
+
+</paragraph>
+ <paragraph index="419" node_type="writer">Error encountered while testing gazebo :
+
+
+
+
+
+
+
+
+
+
+</paragraph>
+ <paragraph index="426" node_type="writer">This means that a master terminal is opened. To close it, we must do :
+pkill -9 roscore; pkill -9 rosout; pkill -9 master.</paragraph>
+ <paragraph index="428" node_type="writer">TO avoid this error, we can close the master terminal with : pkill -9 roscore; pkill -9 rosout; pkill -9 master.</paragraph>
+ <paragraph index="431" node_type="writer">Conclusion for what is done so far </paragraph>
+ <paragraph index="432" node_type="writer">My computer can now run OpenCV, ROS through Docker and Gazebo. My computer has enough capacity to hold the porject, except for the YOLOv5s training which will be done directly one the car LIMO PRO.</paragraph>
+</indexing>
