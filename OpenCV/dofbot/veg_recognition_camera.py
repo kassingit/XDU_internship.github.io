@@ -4,7 +4,7 @@ import cv2
 from ultralytics import YOLO
 
 # Load model
-model = YOLO()
+model = YOLO('exp-5.pt') 
 
 # Vdeo source (0 = webcam , or paht to .mp4)
 cap = cv2.VideoCapture(2)

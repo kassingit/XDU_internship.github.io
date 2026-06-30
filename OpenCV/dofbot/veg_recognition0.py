@@ -1,10 +1,10 @@
 import requests
 import cv2
 
-endpoint = "https://predict-6a3e07f056f70c6e228d-dproatj77a-df.a.run.app"
+endpoint = "https://predict-6a42342e7e91a4ba7274-dproatj77a-df.a.run.app"
 with open("key.txt",'r') as f:
     api_key= f.read().strip()
-img_path= "/home/kelly/XDU_internship.github.io/OpenCV/dofbot/image_for_test/_poivron_m_lange_de_couleurs_bio-c-a-mr-1.jpg"
+img_path= "/home/kelly/XDU_internship.github.io/OpenCV/dofbot/Val/strawberry1.jpeg"
 
 # send image to API
 with open(img_path,"rb") as f:
